@@ -4,8 +4,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/Bhushan1137/', label: 'GitHub' },
+    { icon: Linkedin, href: 'www.linkedin.com/in/bhushan-mahajan-1137-bpm8435', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:bhushanpmahajan1137@gmail.com', label: 'Email' },
   ];
 

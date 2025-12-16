@@ -9,23 +9,23 @@ const projects = [
     description:
       'A BookMyShow-like platform built with React.js, Firebase (Auth & Firestore), and Material UI. Features include real-time bookings, automatic expiry, secure seat-lock validation, movie filtering, API-based dynamic data, and detailed movie pages.',
     technologies: ['React.js', 'Firebase', 'Material UI', 'Context API', 'React Router'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    github: 'https://github.com/Bhushan1137/Movie-Ticket-Booking',
+    demo: 'https://movie-ticket-booking-bhushan.vercel.app/home',
   },
   {
     title: 'Rippletone - Musical Website',
     description:
       'A dynamic musical platform utilizing ReactJS for the front-end and NodeJS for the back-end. Integrated third-party APIs for music streaming and playlist creation. Implemented state management using React Hooks and Context API.',
     technologies: ['ReactJS', 'NodeJS', 'APIs', 'Chakra UI', 'React Hooks'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    github: 'https://github.com/Bhushan1137/RippleTone-musical-website',
+    demo: 'https://beatbox-music.vercel.app/home',
   },
   {
     title: 'Hotel Booking Website',
     description:
       'Designed a hotel booking website with a focus on front-end functionality, enabling filtering by location and rating, and creating a user-friendly interface.',
     technologies: ['ReactJS', 'JSON', 'JavaScript'],
-    github: 'https://github.com',
+    github: 'https://github.com/Bhushan1137/Hotel_Booking',
     demo: '',
   },
 ];

@@ -47,9 +47,16 @@ export function Navbar() {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('#home')}
-              className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent"
+              className="flex items-center group"
             >
-              Bhushan
+              <img 
+                src="/bhushan.png" 
+                alt="BM Logo" 
+                className="h-10 w-10 object-contain"
+              />
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                Bhushan
+              </span>
             </button>
           </div>
 

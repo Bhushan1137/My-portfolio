@@ -4,10 +4,9 @@ import { Button } from '../ui/Button';
 
 export function Hero() {
   const handleDownloadResume = () => {
-    // Create a temporary link element
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Placeholder - user should add their resume
-    link.download = 'resume.pdf';
+    link.href = '/BHUSHAN MAHAJAN EXP.pdf'; 
+    link.download = 'BHUSHAN MAHAJAN EXP.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

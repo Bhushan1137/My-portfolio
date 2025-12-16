@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, Linkedin, Github, Twitter } from "lucide-react";
+import { Send, Mail, Linkedin, Github, Twitter, Instagram } from "lucide-react";
 import { Card, CardContent } from "../ui/Card";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
@@ -18,34 +18,53 @@ export function Contact() {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setErrorMessage("");
 
     try {
-      // Replace these with your EmailJS credentials
-      const serviceId = "YOUR_SERVICE_ID";
-      const templateId = "YOUR_TEMPLATE_ID";
-      const publicKey = "YOUR_PUBLIC_KEY";
+      const serviceId = "service_7tcjbeh";
+      const templateId = "template_4afc6kt";
+      const publicKey = "7OmCKsEjJB7XIofC6";
+      const recipientEmail = "bmahajan1802@gmail.com";
 
+      // Use emailjs.send with explicit parameters
       await emailjs.send(
         serviceId,
         templateId,
         {
+          to_email: recipientEmail,
+          to_name: "Bhushan Mahajan",
           from_name: formData.name,
           from_email: formData.email,
+          reply_to: formData.email,
           message: formData.message,
+
+          user_email: recipientEmail,
+          recipient_email: recipientEmail,
         },
         publicKey
       );
 
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error sending email:", error);
       setSubmitStatus("error");
+      const errorText = error.text || error.message || "";
+      if (errorText.includes("recipients address is empty") || errorText.includes("422")) {
+        setErrorMessage(
+          "EmailJS template not configured. Please set 'To Email' field in your EmailJS template to: bmahajan1802@gmail.com or use {{to_email}} variable."
+        );
+      } else {
+        setErrorMessage(
+          errorText || "Failed to send message. Please try again."
+        );
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -62,9 +81,10 @@ export function Contact() {
 
   const socialLinks = [
     { icon: Mail, href: "mailto:bhushanpmahajan1137@gmail.com", label: "Email" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Linkedin, href: "www.linkedin.com/in/bhushan-mahajan-1137-bpm8435", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/Bhushan1137/", label: "GitHub" },
+    { icon: Twitter, href: "https://x.com/BMAHAJAN1137", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/bhushan.mahajan.1137/", label: "Instagram" },
   ];
 
   return (
@@ -150,7 +170,7 @@ export function Contact() {
                     )}
                     {submitStatus === "error" && (
                       <p className="text-sm text-red-600 dark:text-red-400">
-                        Failed to send message. Please try again.
+                        {errorMessage || "Failed to send message. Please try again."}
                       </p>
                     )}
                   </form>
