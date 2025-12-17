@@ -49,11 +49,15 @@ export function Navbar() {
               onClick={() => scrollToSection('#home')}
               className="flex items-center group"
             >
-              <img 
+              {theme !== 'dark' ? (<img 
+                src="/bhushan_dark.png" 
+                alt="BM Logo" 
+                className="h-10 w-10 object-contain"
+              />) : (<img 
                 src="/bhushan.png" 
                 alt="BM Logo" 
                 className="h-10 w-10 object-contain"
-              />
+              />)}
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 Bhushan
               </span>
